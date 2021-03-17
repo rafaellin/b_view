@@ -9,10 +9,7 @@ url_list = [
 "https://www.bilibili.com/video/BV1sV411q7vP",
 "https://www.bilibili.com/video/BV11v411W7rm",
 "https://www.bilibili.com/video/BV1pt4y1r7df",
-"https://www.bilibili.com/video/BV1hA411p7No",
-"https://www.bilibili.com/video/BV1SV411h7tb",
 "https://www.bilibili.com/video/BV1854y1t7BL",
-"https://www.bilibili.com/video/BV1kK4y1L7km",
 ]
 
 init_sleep_sec=8
