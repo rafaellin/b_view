@@ -1,16 +1,4 @@
-url_list = [
-"https://www.bilibili.com/video/BV1u5411P72y",
-"https://www.bilibili.com/video/BV1eb4y1X7VX",
-"https://www.bilibili.com/video/BV1Yi4y1N7Xe",
-"https://www.bilibili.com/video/BV1Hb4y1R7Eg",
-"https://www.bilibili.com/video/BV1nf4y1z7PV",
-"https://www.bilibili.com/video/BV1Kp4y1p7zU",
-"https://www.bilibili.com/video/BV11v4y1o7JQ",
-"https://www.bilibili.com/video/BV1sV411q7vP",
-"https://www.bilibili.com/video/BV11v411W7rm",
-"https://www.bilibili.com/video/BV1pt4y1r7df",
-"https://www.bilibili.com/video/BV1854y1t7BL",
-]
+
 
 init_sleep_sec=8
 play_time_sec=60
@@ -25,6 +13,8 @@ from datetime import datetime
 import random
 import sqlite3
 from sqlite3 import Error
+import sys
+
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -40,6 +30,14 @@ def create_connection(db_file):
         print(e)
 
     return conn
+
+url_list = []
+url_file_name = sys.argv[1]
+with open(url_file_name) as f:
+    url_list = [line.rstrip() for line in f]
+
+print(url_list)
+print(len(url_list))
 
 
 random.shuffle(url_list)
