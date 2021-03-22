@@ -1,8 +1,9 @@
 
 
-init_sleep_sec=8
+init_sleep_sec=30
 play_time_sec=60
-_round=1000  # 0 for unlimited
+_round=1  # 0 for unlimited
+# PROXY = "100.42.120.215:3128"
 
 db_file = "./view.db"
 
@@ -11,8 +12,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
 import random
-import sqlite3
-from sqlite3 import Error
+# import sqlite3
+# from sqlite3 import Error
 import sys
 
 
@@ -45,8 +46,9 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--incognito")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--mute-audio")
+# chrome_options.add_argument('--proxy-server=%s' % PROXY)
 
-conn = create_connection(db_file)
+# conn = create_connection(db_file)
 
 def insert_record(url):
   try:
@@ -62,6 +64,8 @@ def insert_record(url):
 
 def view_url(url):
   driver = webdriver.Chrome(options=chrome_options)
+  
+  print(f"View URL: {url}")
   driver.get(url)
   time.sleep(init_sleep_sec)
   try:
@@ -73,7 +77,7 @@ def view_url(url):
     return
   time.sleep(play_time_sec)
   driver.close()
-  insert_record(url)
+  # insert_record(url)
 
 if _round == 0:
   while True:
